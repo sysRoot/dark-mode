@@ -3,7 +3,7 @@ import useLocalStorage from './useLocalStorage';
 
 const useDarkMode = () => {
     const [isDarkMode, setDarkMode] = useState(false);
-    const [storedValue, setValue] = useLocalStorage('darkMode', 'false');
+    const [storedValue, setValue] = useLocalStorage('darkMode', false);
     
 
     const flipBoolean = (value) => {
@@ -11,7 +11,7 @@ const useDarkMode = () => {
         setValue(isDarkMode);
     }
     useEffect(() => {
-        storedValue
+        storedValue === true
             ? (document.body.className = 'dark-mode')
             : (document.body.className = '');
     }, [storedValue]);
